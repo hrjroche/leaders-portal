@@ -1,0 +1,492 @@
+<!-- EMPOWERED CARE LLC — LEADERS PORTAL v10.0 — Wix Ready
+     All fixes: clickable dashboard cards, corrected profile badges,
+     action needed auto-updates, print buttons, onboarding dates,
+     training Mark Complete, activity log print report.
+     Paste everything into your Wix HTML Embed element (full width x 800px tall). -->
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:#F8F5F0;color:#1A1A1A;}
+.lw{min-height:780px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;background:#F8F5F0;}
+.lc{background:white;border:0.5px solid rgba(0,0,0,.08);border-radius:16px;padding:2rem;width:100%;max-width:430px;box-shadow:0 4px 24px rgba(0,0,0,.06);}
+.lic{width:38px;height:38px;background:#1C4A3E;border-radius:10px;display:flex;align-items:center;justify-content:center;}
+.ro{display:flex;align-items:center;gap:13px;padding:13px 15px;border:1.5px solid rgba(0,0,0,.08);border-radius:12px;cursor:pointer;margin-bottom:9px;transition:all .15s;}
+.ro:hover,.ro.sel{border-color:#1C4A3E;background:#F0F7F4;}
+.ri{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.lb{width:100%;padding:12px;background:#1C4A3E;color:white;border:none;border-radius:10px;font-size:14px;font-weight:500;cursor:pointer;margin-top:1.25rem;font-family:inherit;}
+.lb:hover{background:#2A6B5C;}
+.app{display:none;height:780px;overflow:hidden;}
+.app.on{display:flex;}
+.sb{width:215px;min-width:215px;background:#1C4A3E;display:flex;flex-direction:column;padding:1.25rem 0;overflow-y:auto;}
+.sbh{padding:0 1.25rem 1.25rem;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:1rem;}
+.logr{display:flex;align-items:center;gap:8px;}
+.logic{width:30px;height:30px;background:#C8923A;border-radius:8px;display:flex;align-items:center;justify-content:center;}
+.logt{font-size:13px;font-weight:500;color:white;}
+.ur{margin-top:10px;display:flex;align-items:center;gap:8px;}
+.uav{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:500;color:white;}
+.unm{font-size:12px;color:white;font-weight:500;}.url{font-size:10px;color:rgba(255,255,255,.6);}
+.ss{font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.35);padding:.75rem 1.25rem .25rem;}
+.si{display:flex;align-items:center;gap:9px;padding:9px 1.25rem;font-size:12px;color:rgba(255,255,255,.6);cursor:pointer;border-left:2px solid transparent;transition:all .15s;}
+.si:hover{color:white;background:rgba(255,255,255,.08);}
+.si.active{color:white;background:rgba(255,255,255,.12);border-left-color:#C8923A;}
+.si i{font-size:15px;}
+.sft{padding:1rem 1.25rem .5rem;margin-top:auto;}
+.sout{width:100%;padding:8px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.15);border-radius:8px;font-size:11px;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:5px;}
+.sout:hover{background:rgba(255,255,255,.15);color:white;}
+.main{flex:1;overflow-y:auto;padding:1.5rem;}
+.pg{display:none;}.pg.on{display:block;}
+.pgt{font-size:18px;font-weight:500;color:#1A1A1A;}
+.pgs{font-size:12px;color:#6B7280;margin-top:3px;margin-bottom:1.5rem;}
+.card{background:white;border:0.5px solid rgba(0,0,0,.08);border-radius:14px;padding:1.25rem;margin-bottom:1rem;}
+.cti{font-size:13px;font-weight:500;color:#1A1A1A;margin-bottom:.75rem;}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;}
+.mets{display:grid;gap:10px;margin-bottom:1rem;}
+.m4{grid-template-columns:repeat(4,1fr);}.m3{grid-template-columns:repeat(3,1fr);}
+.met{background:white;border:0.5px solid rgba(0,0,0,.08);border-radius:12px;padding:1rem;cursor:pointer;transition:all .15s;}
+.met:hover{border-color:#1C4A3E;background:#F8FFFE;transform:translateY(-1px);}
+.met.no-click{cursor:default;}.met.no-click:hover{transform:none;border-color:rgba(0,0,0,.08);background:white;}
+.met-label{font-size:10px;color:#6B7280;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;}
+.met-val{font-size:24px;font-weight:500;color:#1A1A1A;}.met-sub{font-size:11px;margin-top:4px;color:#6B7280;}
+.up{color:#166534;}
+.tl{display:flex;gap:10px;padding:8px 0;font-size:12px;border-bottom:0.5px solid #F9FAFB;}
+.tl:last-child{border-bottom:none;}
+.tld{color:#9CA3AF;min-width:58px;flex-shrink:0;}.tlx{color:#6B7280;line-height:1.5;}
+.br{margin-bottom:10px;}
+.brl{display:flex;justify-content:space-between;font-size:12px;color:#6B7280;margin-bottom:5px;}
+.brt{height:6px;background:#F3F4F6;border-radius:3px;}.brf{height:6px;border-radius:3px;}
+.bdg{display:inline-flex;align-items:center;font-size:10px;padding:2px 8px;border-radius:20px;font-weight:500;}
+.bok{background:#F0FDF4;color:#166534;}.bwn{background:#FFFBEB;color:#92400E;}
+.ber{background:#FEF2F2;color:#B91C1C;}.bin{background:#EFF6FF;color:#1E40AF;}.bnt{background:#F3F4F6;color:#374151;}
+.aib{display:inline-flex;align-items:center;gap:4px;padding:5px 10px;background:#F0F7F4;color:#1C4A3E;border:0.5px solid rgba(28,74,62,.2);border-radius:7px;font-size:11px;cursor:pointer;font-family:inherit;}
+.aib:hover{background:#E0F0EB;}
+.prof-layout{display:grid;grid-template-columns:220px 1fr;gap:1rem;}
+.eli{display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:8px;cursor:pointer;font-size:12px;color:#6B7280;margin-bottom:3px;transition:background .1s;}
+.eli:hover{background:#F3F4F6;}.eli.active{background:#F0F7F4;color:#1C4A3E;font-weight:500;}
+.eli-av{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:500;flex-shrink:0;}
+.anf{background:white;border:0.5px solid rgba(0,0,0,.08);border-radius:12px;padding:1rem;}
+.fl{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:#9CA3AF;font-weight:500;margin-bottom:4px;display:block;}
+.fi{width:100%;border:0.5px solid #E5E7EB;border-radius:8px;padding:7px 10px;font-size:12px;font-family:inherit;color:#1A1A1A;background:white;}
+.fi:focus{outline:none;border-color:#1C4A3E;}
+.fsel{width:100%;border:0.5px solid #E5E7EB;border-radius:8px;padding:7px 10px;font-size:12px;font-family:inherit;color:#1A1A1A;background:white;cursor:pointer;}
+.fsel:focus{outline:none;border-color:#1C4A3E;}
+.fta{width:100%;border:0.5px solid #E5E7EB;border-radius:8px;padding:7px 10px;font-size:12px;font-family:inherit;color:#1A1A1A;min-height:72px;resize:none;}
+.fta:focus{outline:none;border-color:#1C4A3E;}
+.add-btn{width:100%;padding:8px;background:#1C4A3E;color:white;border:none;border-radius:8px;font-size:12px;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:5px;}
+.add-btn:hover{background:#2A6B5C;}
+.log-entry{border:0.5px solid rgba(0,0,0,.07);border-radius:10px;padding:.875rem;margin-bottom:8px;background:white;}
+.log-meta{display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap;}
+.lcat{display:inline-flex;align-items:center;gap:4px;font-size:10px;padding:2px 8px;border-radius:20px;font-weight:500;}
+.cat-performance{background:#EFF6FF;color:#1E40AF;}.cat-commendation{background:#F0FDF4;color:#166534;}
+.cat-behavior{background:#FFF7ED;color:#9A3412;}.cat-verbal{background:#FFFBEB;color:#92400E;}
+.cat-written{background:#FEF2F2;color:#B91C1C;}.cat-incident{background:#FEE2E2;color:#7F1D1D;}
+.cat-counseling{background:#FAF5FF;color:#7E22CE;}.cat-goal{background:#F0FDFA;color:#134E4A;}
+.log-date{font-size:11px;color:#9CA3AF;}.log-by{font-size:10px;color:#9CA3AF;margin-left:auto;}
+.log-text{font-size:12px;color:#374151;line-height:1.6;}
+.emp-hd{display:flex;align-items:center;gap:12px;padding:.875rem 1rem;background:#F8F5F0;border-radius:12px;margin-bottom:.5rem;}
+.status-note{font-size:11px;color:#9CA3AF;background:#F8F5F0;padding:6px 10px;border-radius:8px;margin-bottom:1rem;line-height:1.5;}
+.promo-card{background:white;border:0.5px solid rgba(0,0,0,.08);border-radius:14px;padding:1.25rem;margin-top:.75rem;}
+.promo-bar-wrap{height:8px;background:#F3F4F6;border-radius:4px;margin:6px 0 10px;}
+.promo-bar-fill{height:8px;border-radius:4px;transition:width .5s;}
+.promo-factor{display:flex;align-items:center;justify-content:space-between;padding:5px 0;font-size:12px;border-bottom:0.5px solid #F9FAFB;}
+.promo-factor:last-child{border-bottom:none;}
+.promo-rec{background:#F8F5F0;border-radius:8px;padding:.75rem;font-size:12px;color:#374151;line-height:1.6;margin-top:.75rem;}
+.rv-layout{display:grid;grid-template-columns:210px 1fr;gap:1rem;}
+.comp-table{width:100%;border-collapse:collapse;margin-bottom:1rem;}
+.comp-table th{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:#9CA3AF;padding:6px 8px;border-bottom:0.5px solid #E5E7EB;text-align:left;}
+.comp-table th:last-child{text-align:center;min-width:115px;}
+.comp-table td{padding:7px 8px;border-bottom:0.5px solid #F9FAFB;font-size:12px;vertical-align:middle;}
+.comp-table td:first-child{width:24px;color:#9CA3AF;font-weight:500;}
+.comp-table td:nth-child(3){font-size:11px;color:#6B7280;padding-left:0;}
+.comp-table td:last-child{text-align:center;}
+.ssc{border:0.5px solid #E5E7EB;border-radius:7px;padding:5px 6px;font-size:11px;font-family:inherit;color:#1A1A1A;background:white;cursor:pointer;width:108px;}
+.ssc:focus{outline:none;border-color:#1C4A3E;}
+.rtb-row{display:flex;gap:8px;margin-bottom:1rem;flex-wrap:wrap;}
+.rtb{padding:6px 14px;border:1px solid #E5E7EB;border-radius:20px;font-size:11px;cursor:pointer;background:white;color:#6B7280;font-family:inherit;}
+.rtb.active{background:#1C4A3E;color:white;border-color:#1C4A3E;}
+.score-sum{background:#F8F5F0;border-radius:10px;padding:.875rem 1rem;display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:1rem;}
+.ss-item{text-align:center;}
+.ss-val{font-size:20px;font-weight:500;color:#1A1A1A;}.ss-lbl{font-size:10px;color:#6B7280;margin-top:2px;}
+.past-rv{background:#F8F5F0;border-radius:10px;padding:.875rem;margin-bottom:.75rem;}
+.past-rv-pills{display:flex;flex-wrap:wrap;gap:5px;margin-top:.5rem;}
+.pill{font-size:10px;background:white;border:0.5px solid rgba(0,0,0,.08);border-radius:6px;padding:2px 7px;color:#374151;}
+.ckitem{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:0.5px solid #F9FAFB;}
+.ckitem:last-child{border-bottom:none;}
+.ckph{font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:#9CA3AF;padding:8px 0 2px;font-weight:500;}
+.ckbox{width:20px;height:20px;border-radius:5px;border:1.5px solid #D1D5DB;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;margin-top:1px;transition:all .2s;}
+.ckbox.chk{background:#1C4A3E;border-color:#1C4A3E;}
+.ckbox.chk i{color:white;font-size:11px;}
+.cklabel{font-size:12px;color:#1A1A1A;}.cklabel.done{text-decoration:line-through;color:#9CA3AF;}
+.cksub{font-size:10px;color:#9CA3AF;margin-top:1px;}
+.ckdate{font-size:10px;color:#166534;margin-top:2px;font-weight:500;}
+.tscroll{overflow-x:auto;}
+.ttbl{border-collapse:collapse;font-size:11px;min-width:100%;}
+.ttbl th{font-size:9px;text-transform:uppercase;letter-spacing:.06em;color:#9CA3AF;padding:5px 6px;text-align:center;border-bottom:0.5px solid #E5E7EB;white-space:nowrap;}
+.ttbl th.ghead{background:#F8F5F0;font-weight:500;}
+.ttbl th.emph{text-align:left;}
+.ttbl td{padding:6px;border-bottom:0.5px solid #F9FAFB;text-align:center;vertical-align:middle;}
+.ttbl td:first-child{text-align:left;min-width:120px;}
+.ttbl tr{cursor:pointer;}.ttbl tr:hover td{background:#F8F5F0;}.ttbl tr.sel td{background:#F0F7F4;}
+.ttbl thead tr{cursor:default;}
+.tep{display:flex;align-items:center;gap:7px;}
+.tav{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:500;flex-shrink:0;}
+.tnm{font-size:11px;color:#1A1A1A;white-space:nowrap;}
+.tok{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#F0FDF4;color:#166534;font-size:9px;font-weight:700;}
+.twn{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#FFFBEB;color:#92400E;font-size:10px;font-weight:700;}
+.ter{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#FEF2F2;color:#B91C1C;font-size:10px;font-weight:700;}
+.tno{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;color:#D1D5DB;font-size:12px;}
+.tdet{margin-top:1rem;border-radius:12px;overflow:hidden;border:0.5px solid rgba(0,0,0,.08);}
+.tdet-hd{display:flex;align-items:center;gap:10px;padding:.875rem 1rem;background:#F8F5F0;border-bottom:0.5px solid rgba(0,0,0,.06);}
+.tdet-sec{font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:#9CA3AF;padding:.75rem 1rem .5rem;font-weight:500;background:white;border-bottom:0.5px solid #F3F4F6;}
+.tdet-row{display:grid;grid-template-columns:1fr 80px 90px 90px 90px 110px;border-bottom:0.5px solid #F9FAFB;background:white;}
+.tdet-row.hr-row{background:#FFF8F8;}
+.tdet-cell{padding:7px 8px;font-size:12px;color:#1A1A1A;display:flex;align-items:center;}
+.tdet-hrow{display:grid;grid-template-columns:1fr 80px 90px 90px 90px 110px;background:#F8F5F0;border-bottom:0.5px solid #E5E7EB;}
+.tdet-hcell{padding:6px 8px;font-size:9px;text-transform:uppercase;letter-spacing:.06em;color:#9CA3AF;font-weight:500;}
+.din{border:none;border-bottom:0.5px solid #E5E7EB;background:transparent;font-size:11px;color:#374151;width:100%;padding:2px 0;font-family:inherit;}
+.din:focus{outline:none;border-bottom-color:#1C4A3E;}
+.hr-badge{display:inline-flex;align-items:center;gap:3px;font-size:9px;padding:1px 6px;border-radius:10px;background:#FEE2E2;color:#991B1B;font-weight:500;margin-left:6px;}
+.flt{display:inline-flex;align-items:center;gap:4px;padding:5px 11px;background:white;border:0.5px solid rgba(0,0,0,.1);border-radius:20px;font-size:11px;cursor:pointer;color:#6B7280;margin-right:5px;font-family:inherit;}
+.flt.active{background:#1C4A3E;color:white;border-color:#1C4A3E;}
+.mk-btn{padding:5px 10px;background:#1C4A3E;color:white;border:none;border-radius:6px;font-size:11px;cursor:pointer;font-family:inherit;white-space:nowrap;}
+.mk-btn:hover{background:#2A6B5C;}
+.svq{background:white;border:0.5px solid rgba(0,0,0,.08);border-radius:12px;padding:1rem;margin-bottom:10px;}
+.svqt{font-size:13px;font-weight:500;color:#1A1A1A;margin-bottom:10px;}
+.rtr{display:flex;gap:5px;flex-wrap:wrap;}
+.ratb{width:27px;height:27px;border:1px solid #E5E7EB;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:11px;cursor:pointer;background:white;color:#6B7280;font-family:inherit;}
+.ratb:hover{border-color:#1C4A3E;color:#1C4A3E;}.ratb.sl{background:#1C4A3E;color:white;border-color:#1C4A3E;}
+.svsc{display:flex;justify-content:space-between;font-size:10px;color:#9CA3AF;margin-top:4px;}
+.portal-box{background:linear-gradient(135deg,#F0F7F4,#E6F4EE);border:1px solid rgba(28,74,62,.15);border-radius:12px;padding:1rem 1.25rem;margin-bottom:1rem;display:flex;gap:14px;align-items:flex-start;}
+.qchat{height:380px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;padding:.5rem 0;}
+.msg{max-width:84%;}.msgu{align-self:flex-end;}.msga{align-self:flex-start;}
+.msglb{font-size:10px;color:#9CA3AF;margin-bottom:3px;}
+.msgu .msglb{text-align:right;}
+.bbl{padding:10px 14px;border-radius:14px;font-size:13px;line-height:1.6;}
+.msgu .bbl{background:#1C4A3E;color:white;border-bottom-right-radius:4px;}
+.msga .bbl{background:#F8F5F0;color:#1A1A1A;border:0.5px solid rgba(0,0,0,.08);border-bottom-left-radius:4px;}
+.qin{flex:1;border:0.5px solid #E5E7EB;border-radius:10px;padding:9px 13px;font-size:13px;font-family:inherit;color:#1A1A1A;background:white;min-width:0;}
+.qin:focus{outline:none;border-color:#1C4A3E;}
+.qsnd{background:#1C4A3E;color:white;border:none;border-radius:10px;padding:0 16px;cursor:pointer;font-size:13px;font-family:inherit;}
+.qsnd:hover{background:#2A6B5C;}
+.chip{display:inline-flex;align-items:center;gap:4px;padding:5px 11px;background:#F0F7F4;color:#1C4A3E;border:0.5px solid rgba(28,74,62,.2);border-radius:20px;font-size:11px;cursor:pointer;margin:3px;}
+.chip:hover{background:#E0F0EB;}
+.ob-lay{display:grid;grid-template-columns:185px 1fr;gap:1rem;}
+.ptr{height:8px;background:#F3F4F6;border-radius:4px;margin:8px 0 1.25rem;}
+.pfl{height:8px;border-radius:4px;background:#1C4A3E;transition:width .4s;}
+.pb{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;background:#1C4A3E;color:white;border:none;border-radius:9px;font-size:13px;cursor:pointer;font-family:inherit;}
+.pb:hover{background:#2A6B5C;}
+.alert-bar{background:#FFFBEB;border:0.5px solid #F59E0B;border-radius:10px;padding:.875rem 1rem;margin-bottom:1rem;display:flex;align-items:flex-start;gap:10px;}
+.alert-item{display:inline-flex;align-items:center;font-size:12px;color:#78350F;cursor:pointer;text-decoration:underline;text-decoration-style:dotted;margin:1px 6px 1px 0;}
+.alert-item:hover{color:#92400E;}
+.rk-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:0.5px solid #F9FAFB;}
+.rk-row:last-child{border-bottom:none;}
+.rkav{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;flex-shrink:0;}
+.dash-link{cursor:pointer;border-radius:6px;padding:2px 4px;margin:-2px -4px;transition:background .1s;}
+.dash-link:hover{background:rgba(28,74,62,.05);}
+.print-btn{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;background:white;color:#1C4A3E;border:0.5px solid rgba(28,74,62,.2);border-radius:8px;font-size:11px;cursor:pointer;font-family:inherit;}
+.print-btn:hover{background:#F0F7F4;}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+
+<div class="lw" id="login">
+  <div style="display:flex;align-items:center;gap:9px;margin-bottom:.4rem"><div class="lic"><i class="ti ti-shield-heart" style="color:white;font-size:18px"></i></div><div style="font-size:19px;font-weight:500;color:#1C4A3E">Empowered Care</div></div>
+  <div style="font-size:12px;color:#6B7280;margin-bottom:2rem">Leaders Portal &middot; Authorized Access Only</div>
+  <div class="lc">
+    <div style="font-size:15px;font-weight:500;color:#1A1A1A;margin-bottom:.25rem">Welcome back</div>
+    <div style="font-size:12px;color:#6B7280;margin-bottom:1.25rem">Select your role to continue</div>
+    <div class="ro sel" id="ra" onclick="pickRole('admin')"><div class="ri" style="background:#F0F7F4"><i class="ti ti-building-community" style="color:#1C4A3E;font-size:20px"></i></div><div style="font-size:14px;font-weight:500;color:#1A1A1A">HR Department</div><i class="ti ti-circle-check" id="cka" style="color:#1C4A3E;font-size:17px;margin-left:auto"></i></div>
+    <div class="ro" id="rm" onclick="pickRole('mgr')"><div class="ri" style="background:#FFFBEB"><i class="ti ti-users" style="color:#92400E;font-size:20px"></i></div><div style="font-size:14px;font-weight:500;color:#1A1A1A">Department Supervisors/Managers</div><i class="ti ti-circle" id="ckm" style="color:#D1D5DB;font-size:17px;margin-left:auto"></i></div>
+    <button class="lb" onclick="enterApp()">Enter Portal <i class="ti ti-arrow-right" style="font-size:13px"></i></button>
+    <div style="font-size:11px;color:#9CA3AF;text-align:center;margin-top:.75rem">Empowered Care LLC &middot; Authorized Access Only</div>
+  </div>
+</div>
+
+<div class="app" id="app">
+  <div class="sb">
+    <div class="sbh">
+      <div class="logr"><div class="logic"><i class="ti ti-shield-heart" style="color:white;font-size:14px"></i></div><div class="logt">Empowered Care</div></div>
+      <div class="ur"><div class="uav" id="sbav">JA</div><div><div class="unm" id="sbnm">Jumillah A.</div><div class="url" id="sbrl">HR Department</div></div></div>
+    </div>
+    <div id="nava">
+      <div class="ss">Overview</div><div class="si active" onclick="nav('dashboard',this)"><i class="ti ti-layout-dashboard"></i> Dashboard</div>
+      <div class="ss">People</div><div class="si" onclick="nav('profiles',this)"><i class="ti ti-users"></i> Employee Profiles</div><div class="si" onclick="nav('onboarding',this)"><i class="ti ti-clipboard-list"></i> Onboarding</div><div class="si" onclick="nav('reviews',this)"><i class="ti ti-chart-bar"></i> Performance Reviews</div><div class="si" onclick="nav('training',this)"><i class="ti ti-certificate"></i> Training &amp; Certs</div>
+      <div class="ss">Insights</div><div class="si" onclick="nav('retention',this)"><i class="ti ti-alert-triangle"></i> Retention Signals</div><div class="si" onclick="nav('surveys',this)"><i class="ti ti-chart-dots"></i> Surveys</div>
+      <div class="ss">HR Tools</div><div class="si" onclick="nav('chat',this)"><i class="ti ti-message-circle"></i> HR Quick Reference</div>
+    </div>
+    <div id="navm" style="display:none">
+      <div class="ss">My Team</div><div class="si active" onclick="nav('profiles',this)"><i class="ti ti-users"></i> Employee Profiles</div><div class="si" onclick="nav('reviews',this)"><i class="ti ti-chart-bar"></i> Performance Reviews</div><div class="si" onclick="nav('onboarding',this)"><i class="ti ti-clipboard-list"></i> Onboarding</div><div class="si" onclick="nav('training',this)"><i class="ti ti-certificate"></i> Training &amp; Certs</div>
+    </div>
+    <div class="sft"><button class="sout" onclick="logout()"><i class="ti ti-logout" style="font-size:13px"></i> Sign out</button></div>
+  </div>
+  <div class="main">
+
+    <div class="pg on" id="pg-dashboard">
+      <div class="pgt">Team Health Dashboard</div><div class="pgs">Empowered Care &middot; May 2026 &middot; Click any card to go to that section</div>
+      <div class="mets m4">
+        <div class="met" onclick="navTo('profiles')" title="View all employees"><div class="met-label">Team Size</div><div class="met-val">12</div><div class="met-sub up"><i class="ti ti-trending-up" style="font-size:10px"></i> +2 this quarter &middot; Click to view all</div></div>
+        <div class="met" onclick="navTo('surveys')" title="View surveys"><div class="met-label">Avg Engagement</div><div class="met-val">78%</div><div class="met-sub up"><i class="ti ti-trending-up" style="font-size:10px"></i> +4% vs last month &middot; Click for surveys</div></div>
+        <div class="met" onclick="navTo('reviews')" title="View performance reviews"><div class="met-label">Reviews Due</div><div class="met-val" style="color:#92400E" id="dash-reviews-due">3</div><div class="met-sub">scheduled this month &middot; Click to view</div></div>
+        <div class="met" onclick="navTo('retention')" title="View retention signals"><div class="met-label">At Risk / Watching</div><div class="met-val" style="color:#B91C1C">5</div><div class="met-sub">flagged employees &middot; Click for details</div></div>
+      </div>
+      <div class="alert-bar" id="alert-bar"><i class="ti ti-alert-triangle" style="color:#92400E;font-size:16px;flex-shrink:0"></i><div id="alert-content" style="font-size:12px;color:#78350F;flex:1;line-height:1.8"></div></div>
+      <div class="two">
+        <div class="card">
+          <div class="cti">Promotion Eligibility Snapshot <span style="font-size:10px;font-weight:400;color:#9CA3AF">&mdash; click to view profile</span></div>
+          <div class="br dash-link" onclick="navToProfile(0)"><div class="brl"><span>Layla Reeves</span><span style="color:#166534;font-weight:500">87/100 &middot; Ready &#x2197;</span></div><div class="brt"><div class="brf" style="width:87%;background:#166534"></div></div></div>
+          <div class="br dash-link" onclick="navToProfile(3)"><div class="brl"><span>Jerome Washington</span><span style="color:#166534;font-weight:500">94/100 &middot; Ready &#x2197;</span></div><div class="brt"><div class="brf" style="width:94%;background:#166534"></div></div></div>
+          <div class="br dash-link" onclick="navToProfile(9)"><div class="brl"><span>Patricia Holmes</span><span style="color:#1C4A3E;font-weight:500">76/100 &middot; Developing &#x2197;</span></div><div class="brt"><div class="brf" style="width:76%;background:#1C4A3E"></div></div></div>
+          <div class="br dash-link" onclick="navToProfile(2)"><div class="brl"><span>Denise Pryor</span><span style="color:#B91C1C;font-weight:500">31/100 &middot; Not Eligible &#x2197;</span></div><div class="brt"><div class="brf" style="width:31%;background:#B91C1C"></div></div></div>
+        </div>
+        <div class="card">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem"><div class="cti" style="margin-bottom:0">Recent Activity</div><button class="print-btn" onclick="printActivity()"><i class="ti ti-printer" style="font-size:11px"></i> Print Report</button></div>
+          <div class="tl"><div class="tld">May 19</div><div class="tlx">Verbal warning &mdash; Joe M., attitude/conflict</div></div>
+          <div class="tl"><div class="tld">May 14</div><div class="tlx">Verbal warning &mdash; Denise P., 3rd unexcused absence</div></div>
+          <div class="tl"><div class="tld">May 10</div><div class="tlx">Commendation &mdash; Layla R., outstanding overnight shift</div></div>
+          <div class="tl"><div class="tld">Apr 6</div><div class="tlx">Commendation &mdash; Sandra R. went above &amp; beyond</div></div>
+          <div class="tl"><div class="tld">Apr 4</div><div class="tlx">90-day review &mdash; Ramon C. &middot; Avg 3.2 &middot; Solid</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pg" id="pg-profiles">
+      <div class="pgt">Employee Profiles</div><div class="pgs" id="prof-sub">Select an employee &middot; Log notes &middot; HR view includes Promotion Eligibility Profile</div>
+      <div class="prof-layout">
+        <div class="card" style="padding:.875rem;height:fit-content"><div class="cti" style="margin-bottom:.5rem">All Staff</div><div id="emp-list"></div></div>
+        <div id="prof-right"><div style="display:flex;align-items:center;justify-content:center;height:220px;color:#9CA3AF;font-size:13px;background:white;border-radius:14px;border:0.5px solid rgba(0,0,0,.08)"><div style="text-align:center"><i class="ti ti-user-circle" style="font-size:32px;display:block;margin-bottom:8px;color:#D1D5DB"></i>Select an employee to view and log notes</div></div></div>
+      </div>
+    </div>
+
+    <div class="pg" id="pg-onboarding">
+      <div class="pgt">Onboarding Tracker</div><div class="pgs">Click checkboxes to mark steps complete &middot; Completion dates are recorded automatically</div>
+      <div class="ob-lay">
+        <div class="card" style="padding:1rem"><div class="cti" style="margin-bottom:.5rem">New Hires</div><div id="hire-list"></div></div>
+        <div class="card">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start"><div><div style="font-size:15px;font-weight:500;color:#1A1A1A" id="hnm">Marcus Tillman</div><div style="font-size:11px;color:#6B7280;margin-top:2px" id="hsub">Started Feb 20, 2026 &middot; Direct Care Worker</div></div><div style="text-align:right"><div style="font-size:22px;font-weight:500;color:#1C4A3E" id="hpct">60%</div><div style="font-size:10px;color:#6B7280">complete</div></div></div>
+          <div class="ptr"><div class="pfl" id="hbar" style="width:60%"></div></div>
+          <div id="checklist"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pg" id="pg-reviews">
+      <div class="pgt">Performance Reviews</div><div class="pgs">12 Core Competencies &middot; Saving a review removes it from Action Needed on the dashboard</div>
+      <div class="rv-layout">
+        <div class="card" style="padding:.875rem;height:fit-content"><div class="cti" style="margin-bottom:.5rem">All Employees</div><div id="rv-emp-list"></div></div>
+        <div id="rv-right"><div style="display:flex;align-items:center;justify-content:center;height:220px;color:#9CA3AF;font-size:13px;background:white;border-radius:14px;border:0.5px solid rgba(0,0,0,.08)"><div style="text-align:center"><i class="ti ti-chart-bar" style="font-size:32px;display:block;margin-bottom:8px;color:#D1D5DB"></i>Select an employee to complete or view reviews</div></div></div>
+      </div>
+    </div>
+
+    <div class="pg" id="pg-training">
+      <div class="pgt">Training &amp; Certifications</div><div class="pgs">Click any employee row &middot; Edit dates &middot; Use Mark Complete to update status instantly</div>
+      <div class="mets m4">
+        <div class="met no-click"><div class="met-label">Fully Current</div><div class="met-val" style="color:#166534">4</div><div class="met-sub">all trainings complete</div></div>
+        <div class="met no-click"><div class="met-label">Expiring Soon</div><div class="met-val" style="color:#92400E">3</div><div class="met-sub">QMAP &amp; CPR affected</div></div>
+        <div class="met no-click"><div class="met-label">Expired / Overdue</div><div class="met-val" style="color:#B91C1C">2</div><div class="met-sub">action needed now</div></div>
+        <div class="met no-click"><div class="met-label">In Onboarding</div><div class="met-val" style="color:#1E40AF">3</div><div class="met-sub">training in progress</div></div>
+      </div>
+      <div class="card">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:.75rem"><div class="cti" style="margin-bottom:0">Team Training Status</div><div><button class="flt active" id="flt-all" onclick="filterT('all')">All Staff</button><button class="flt" id="flt-att" onclick="filterT('att')">Needs Attention</button></div></div>
+        <div class="tscroll"><table class="ttbl" id="ttbl"></table></div>
+        <div id="tdet-wrap" style="display:none">
+          <div class="tdet">
+            <div class="tdet-hd" id="tdet-hd"></div>
+            <div class="tdet-hrow"><div class="tdet-hcell">Training / Certification</div><div class="tdet-hcell" style="text-align:center">Status</div><div class="tdet-hcell">Completed</div><div class="tdet-hcell">Expires</div><div class="tdet-hcell">Due By</div><div class="tdet-hcell">Action</div></div>
+            <div id="tdet-rows"></div>
+          </div>
+          <div style="font-size:11px;color:#6B7280;padding:.5rem 1rem;background:#F8F5F0;border-radius:0 0 12px 12px">Note: Changes save for this session only. Permanent saving is part of the database build (next session).</div>
+        </div>
+      </div>
+      <div class="card"><div class="cti">Legend</div><div style="display:flex;flex-wrap:wrap;gap:12px;font-size:12px;color:#6B7280;align-items:center"><span><span class="tok">&#x2713;</span> Current</span><span><span class="twn">!</span> Expiring soon</span><span><span class="ter">&#x2717;</span> Expired</span><span><span class="tno">&mdash;</span> Not completed</span><span class="hr-badge"><i class="ti ti-lock" style="font-size:9px"></i> HR Only</span></div></div>
+    </div>
+
+    <div class="pg" id="pg-retention">
+      <div class="pgt">Retention Signals</div><div class="pgs">Employees flagged by note history, engagement trends, and behavioral patterns</div>
+      <div class="mets m3">
+        <div class="met no-click"><div class="met-label">High Risk</div><div class="met-val" style="color:#B91C1C">2</div><div class="met-sub">immediate attention</div></div>
+        <div class="met no-click"><div class="met-label">Medium Risk</div><div class="met-val" style="color:#92400E">3</div><div class="met-sub">monitor closely</div></div>
+        <div class="met no-click"><div class="met-label">Stable</div><div class="met-val" style="color:#166534">7</div><div class="met-sub">no flags this month</div></div>
+      </div>
+      <div class="card"><div class="cti">Flagged Employees</div>
+        <div class="rk-row"><div class="rkav" style="background:#FEE2E2;color:#991B1B">DP</div><div style="flex:1"><div style="font-size:13px;font-weight:500;color:#1A1A1A">Denise Pryor <span class="bdg ber" style="margin-left:6px">High Risk</span></div><div style="font-size:11px;color:#6B7280;margin-top:2px">3 absences &middot; Verbal warning &middot; QMAP &amp; CPR expired &middot; Promo 31/100</div></div><button class="aib" onclick="navToProfile(2)"><i class="ti ti-user" style="font-size:12px"></i> View Profile</button></div>
+        <div class="rk-row"><div class="rkav" style="background:#FEF3C7;color:#92400E">KM</div><div style="flex:1"><div style="font-size:13px;font-weight:500;color:#1A1A1A">Kevin Moore <span class="bdg ber" style="margin-left:6px">High Risk</span></div><div style="font-size:11px;color:#6B7280;margin-top:2px">Mentioned job searching &middot; Engagement down 15% &middot; Certs expiring Jun 2026</div></div><button class="aib" onclick="navToProfile(5)"><i class="ti ti-user" style="font-size:12px"></i> View Profile</button></div>
+        <div class="rk-row"><div class="rkav" style="background:#DBEAFE;color:#1E40AF">SR</div><div style="flex:1"><div style="font-size:13px;font-weight:500;color:#1A1A1A">Sandra Rivera <span class="bdg bwn" style="margin-left:6px">Medium</span></div><div style="font-size:11px;color:#6B7280;margin-top:2px">Repeated tardiness &middot; Incident Reports training outstanding</div></div><button class="aib" onclick="navToProfile(4)"><i class="ti ti-user" style="font-size:12px"></i> View Profile</button></div>
+      </div>
+    </div>
+
+    <div class="pg" id="pg-surveys">
+      <div class="pgt">Pulse Surveys</div><div class="pgs">May 2026 &middot; 10 of 12 responded &middot; HR Department view</div>
+      <div class="portal-box"><div style="width:36px;height:36px;background:#1C4A3E;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="ti ti-world" style="color:white;font-size:16px"></i></div><div><div style="font-size:13px;font-weight:500;color:#1C4A3E;margin-bottom:3px">Staff Portal Integration &mdash; Next Build</div><div style="font-size:12px;color:#2A5C4A;line-height:1.6">Send your 5&ndash;8 monthly survey questions and the full Wix form + Google Sheets connection will be built so results flow here automatically.</div></div></div>
+      <div class="two">
+        <div class="card"><div class="cti">May 2026 Results</div>
+          <div class="br"><div class="brl"><span>Team culture &amp; belonging</span><span style="font-weight:500;color:#1A1A1A">8.4</span></div><div class="brt"><div class="brf" style="width:84%;background:#166534"></div></div></div>
+          <div class="br"><div class="brl"><span>I feel valued by my manager</span><span style="font-weight:500;color:#1A1A1A">7.8</span></div><div class="brt"><div class="brf" style="width:78%;background:#1C4A3E"></div></div></div>
+          <div class="br"><div class="brl"><span>Would recommend Empowered Care</span><span style="font-weight:500;color:#1A1A1A">7.5</span></div><div class="brt"><div class="brf" style="width:75%;background:#1C4A3E"></div></div></div>
+          <div class="br"><div class="brl"><span>Workload feels manageable</span><span style="font-weight:500;color:#C8923A">7.2</span></div><div class="brt"><div class="brf" style="width:72%;background:#C8923A"></div></div></div>
+          <div class="br"><div class="brl"><span>I see growth opportunities</span><span style="font-weight:500;color:#B91C1C">6.1</span></div><div class="brt"><div class="brf" style="width:61%;background:#B91C1C"></div></div></div>
+        </div>
+        <div class="card"><div class="cti">Key Takeaways</div><div style="font-size:13px;color:#6B7280;line-height:1.7">Team culture is a clear strength. Biggest gap: <strong style="color:#1A1A1A">growth &amp; advancement</strong>. Two open comments flagged workload; one mentioned &ldquo;feeling invisible.&rdquo; Recommend 1:1s focused on career goals.</div></div>
+      </div>
+      <div class="card"><div class="cti">Preview this month&rsquo;s survey</div>
+        <div class="svq"><div class="svqt">1. How valued do you feel by your manager this week?</div><div class="rtr" id="q1"></div><div class="svsc"><span>Not at all</span><span>Very much</span></div></div>
+        <div class="svq"><div class="svqt">2. How manageable is your current workload?</div><div class="rtr" id="q2"></div><div class="svsc"><span>Overwhelming</span><span>Very manageable</span></div></div>
+        <div class="svq"><div class="svqt">3. How connected do you feel to your team?</div><div class="rtr" id="q3"></div><div class="svsc"><span>Disconnected</span><span>Very connected</span></div></div>
+      </div>
+    </div>
+
+    <div class="pg" id="pg-chat">
+      <div class="pgt">HR Quick Reference <span style="font-size:11px;font-weight:400;background:#F0F7F4;color:#1C4A3E;padding:2px 8px;border-radius:10px;margin-left:8px;vertical-align:middle">HR Only</span></div>
+      <div class="pgs">Built-in HR guidance &middot; works offline &middot; Click a topic or type a question</div>
+      <div class="card">
+        <div style="margin-bottom:.75rem"><div style="font-size:11px;color:#6B7280;margin-bottom:6px">Common topics</div>
+          <span class="chip" onclick="askQ('How do I write a strong 12-competency performance review?')">&#x1F4CB; Write a review</span>
+          <span class="chip" onclick="askQ('How do I properly document a verbal warning?')">&#x1F536; Document a warning</span>
+          <span class="chip" onclick="askQ('How do I build a promotion case for an employee?')">&#x1F4C8; Build a promo case</span>
+          <span class="chip" onclick="askQ('What should I do when an employee is showing retention risk?')">&#x2764; Retention risk</span>
+          <span class="chip" onclick="askQ('How do I handle a behavior or attitude concern?')">&#x26A0; Behavior concern</span>
+          <span class="chip" onclick="askQ('When should I escalate to a written warning?')">&#x1F534; Written warning</span>
+          <span class="chip" onclick="askQ('What do I do about an expired QMAP or CPR cert?')">&#x1F4DC; Expired cert</span>
+          <span class="chip" onclick="askQ('How do I act on low pulse survey scores?')">&#x1F4CA; Survey results</span>
+        </div>
+        <div class="qchat" id="qchat"><div class="msg msga"><div class="msglb">HR Quick Reference</div><div class="bbl">Welcome! Click any topic above or type a question for instant HR guidance &mdash; no internet required. Use <strong>Ask Claude.ai</strong> for custom questions.</div></div></div>
+        <div style="display:flex;gap:8px;padding-top:.75rem;border-top:0.5px solid rgba(0,0,0,.06);margin-top:.75rem;flex-wrap:wrap">
+          <input class="qin" id="qin" placeholder="Type an HR question...">
+          <button class="qsnd" onclick="submitQ()"><i class="ti ti-search" style="font-size:14px"></i> Answer</button>
+          <a href="https://claude.ai/new" target="_blank" style="display:inline-flex;align-items:center;gap:5px;padding:9px 14px;background:#F0F7F4;color:#1C4A3E;border:0.5px solid rgba(28,74,62,.2);border-radius:10px;font-size:12px;text-decoration:none;font-family:inherit"><i class="ti ti-external-link" style="font-size:13px"></i> Ask Claude.ai</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const EMPS=[
+  {id:0,i:'LR',n:'Layla Reeves',r:'Direct Care Worker',t:'2.5 yrs',e:91,s:'active',bg:'#DCFCE7',c:'#166534'},
+  {id:1,i:'MT',n:'Marcus Tillman',r:'Direct Care Worker',t:'3 mos',e:72,s:'onboarding',bg:'#DBEAFE',c:'#1E40AF'},
+  {id:2,i:'DP',n:'Denise Pryor',r:'Residential Aide',t:'1.1 yrs',e:54,s:'risk',bg:'#FEE2E2',c:'#991B1B'},
+  {id:3,i:'JW',n:'Jerome Washington',r:'Team Lead',t:'4.2 yrs',e:85,s:'active',bg:'#F0FDF4',c:'#166534'},
+  {id:4,i:'SR',n:'Sandra Rivera',r:'Direct Care Worker',t:'8 mos',e:66,s:'watch',bg:'#DBEAFE',c:'#1E40AF'},
+  {id:5,i:'KM',n:'Kevin Moore',r:'Direct Care Worker',t:'1.8 yrs',e:61,s:'risk',bg:'#FEF3C7',c:'#92400E'},
+  {id:6,i:'TJ',n:'Tanya Jones',r:'Direct Care Worker',t:'3.1 yrs',e:73,s:'watch',bg:'#F0F9FF',c:'#075985'},
+  {id:7,i:'AW',n:'Angela Williams',r:'Residential Aide',t:'1 mo',e:68,s:'onboarding',bg:'#FAF5FF',c:'#7E22CE'},
+  {id:8,i:'RC',n:'Ramon Cruz',r:'Direct Care Worker',t:'2 mos',e:70,s:'onboarding',bg:'#FFF7ED',c:'#9A3412'},
+  {id:9,i:'PH',n:'Patricia Holmes',r:'Residential Aide',t:'5.3 yrs',e:88,s:'active',bg:'#F0FDFA',c:'#134E4A'},
+  {id:10,i:'DC',n:'Devon Clark',r:'Direct Care Worker',t:'2.7 yrs',e:82,s:'active',bg:'#FDF4FF',c:'#86198F'},
+  {id:11,i:'KB',n:'Keisha Brown',r:'Direct Care Worker',t:'1.5 yrs',e:79,s:'active',bg:'#FFFBEB',c:'#78350F'},
+];
+const SLBL={active:['Active Staff','bok'],onboarding:['In Onboarding','bin'],risk:['At Risk','ber'],watch:['On Watch','bwn']};
+const NOTE_CATS={performance:{label:'Performance Note',cls:'cat-performance'},commendation:{label:'Commendation',cls:'cat-commendation'},behavior:{label:'Behavior Concern',cls:'cat-behavior'},verbal:{label:'Verbal Warning',cls:'cat-verbal'},written:{label:'Written Warning',cls:'cat-written'},incident:{label:'Incident Report',cls:'cat-incident'},counseling:{label:'Counseling Session',cls:'cat-counseling'},goal:{label:'Goal / Development',cls:'cat-goal'}};
+let empLogs={
+  0:[{id:1,date:'5/10/2026',cat:'commendation',text:'Outstanding overnight shift. Three residents specifically praised her care and attentiveness.',by:'Jerome W.'},{id:2,date:'4/28/2026',cat:'performance',text:'Completed all documentation accurately and on time. Exceeded expectations.',by:'Jerome W.'},{id:3,date:'3/15/2026',cat:'goal',text:'Career development conversation. Layla expressed strong interest in Team Lead role. Set 6-month plan.',by:'Jerome W.'}],
+  2:[{id:1,date:'5/14/2026',cat:'verbal',text:'Issued verbal warning for 3rd unexcused absence. Employee acknowledged policy. Documentation completed per HR protocol.',by:'Jerome W.'},{id:2,date:'4/30/2026',cat:'behavior',text:'Feedback received re: attitude during shift handoff. Discussed professionalism and expectations.',by:'Jerome W.'}],
+  4:[{id:1,date:'5/6/2026',cat:'behavior',text:'Repeated tardiness - arrived 15+ minutes late on 3 occasions. Verbal reminder given.',by:'Jerome W.'},{id:2,date:'4/6/2026',cat:'commendation',text:'Sandra went above and beyond by assisting in the office while waiting for co-workers to arrive. Excellent initiative.',by:'Jerome W.'}],
+  5:[{id:1,date:'5/8/2026',cat:'behavior',text:'Kevin mentioned interest in exploring other roles. Engagement lower this month. Scheduled 1:1.',by:'Jerome W.'}],
+  3:[{id:1,date:'5/1/2026',cat:'commendation',text:'Effectively de-escalated a challenging resident situation during evening shift. Exemplary leadership.',by:'Jumillah A.'}],
+  9:[{id:1,date:'5/2/2026',cat:'commendation',text:'Covered two extra shifts without complaint during a staffing shortage. Exemplary dedication.',by:'Jerome W.'}],
+};
+const TC=[
+  {n:'Person Specific Training',sh:'PST',type:'training',hrOnly:false},
+  {n:'Rights',sh:'Rights',type:'training',hrOnly:false},
+  {n:'Abuse Prevention',sh:'Abuse Prev.',type:'training',hrOnly:false},
+  {n:'Adult Protection',sh:'Adult Prot.',type:'training',hrOnly:false},
+  {n:'Log Notes',sh:'Log Notes',type:'training',hrOnly:false},
+  {n:'Incident Reports',sh:'Incidents',type:'training',hrOnly:false},
+  {n:'Mandatory Reporting',sh:'Mand. Rep.',type:'training',hrOnly:false},
+  {n:'QMAP',sh:'QMAP',type:'cert',hrOnly:false},
+  {n:'CPR / First Aid',sh:'CPR/FA',type:'cert',hrOnly:false},
+  {n:'Background Check',sh:'Bkg. Chk.',type:'cert',hrOnly:true},
+];
+const SBDG=['<span class="bdg bnt">Not Started</span>','<span class="bdg bok">Complete</span>','<span class="bdg bwn">Expiring</span>','<span class="bdg ber">Expired</span>'];
+const DOT=['<span class="tno">-</span>','<span class="tok">V</span>','<span class="twn">!</span>','<span class="ter">X</span>'];
+const ETD={
+  0:[{s:1,c:'Apr 2025',e:'-',d:'-'},{s:1,c:'Apr 2025',e:'-',d:'-'},{s:1,c:'Apr 2025',e:'-',d:'-'},{s:1,c:'Apr 2025',e:'-',d:'-'},{s:1,c:'Apr 2025',e:'-',d:'-'},{s:1,c:'Apr 2025',e:'-',d:'-'},{s:1,c:'Apr 2025',e:'-',d:'-'},{s:2,c:'Jun 2025',e:'Jun 2026',d:'-'},{s:2,c:'May 2025',e:'May 2026',d:'-'},{s:1,c:'Nov 2023',e:'-',d:'-'}],
+  1:[{s:1,c:'Feb 2026',e:'-',d:'-'},{s:1,c:'Feb 2026',e:'-',d:'-'},{s:1,c:'Mar 2026',e:'-',d:'-'},{s:1,c:'Mar 2026',e:'-',d:'-'},{s:0,c:'-',e:'-',d:'Jun 2026'},{s:0,c:'-',e:'-',d:'Jun 2026'},{s:0,c:'-',e:'-',d:'Jun 2026'},{s:0,c:'-',e:'-',d:'Jun 2026'},{s:1,c:'Feb 2026',e:'Feb 2027',d:'-'},{s:1,c:'Feb 2026',e:'-',d:'-'}],
+  2:[{s:1,c:'Mar 2025',e:'-',d:'-'},{s:1,c:'Mar 2025',e:'-',d:'-'},{s:1,c:'Mar 2025',e:'-',d:'-'},{s:1,c:'Mar 2025',e:'-',d:'-'},{s:1,c:'Mar 2025',e:'-',d:'-'},{s:1,c:'Mar 2025',e:'-',d:'-'},{s:1,c:'Mar 2025',e:'-',d:'-'},{s:3,c:'Mar 2025',e:'Mar 2026',d:'Overdue'},{s:3,c:'Mar 2025',e:'Mar 2026',d:'Overdue'},{s:1,c:'Mar 2025',e:'-',d:'-'}],
+  3:[{s:1,c:'Jan 2026',e:'-',d:'-'},{s:1,c:'Jan 2026',e:'-',d:'-'},{s:1,c:'Jan 2026',e:'-',d:'-'},{s:1,c:'Jan 2026',e:'-',d:'-'},{s:1,c:'Jan 2026',e:'-',d:'-'},{s:1,c:'Jan 2026',e:'-',d:'-'},{s:1,c:'Jan 2026',e:'-',d:'-'},{s:1,c:'Jan 2026',e:'Jan 2027',d:'-'},{s:1,c:'Jan 2026',e:'Jan 2027',d:'-'},{s:1,c:'Nov 2021',e:'-',d:'-'}],
+  4:[{s:1,c:'Sep 2025',e:'-',d:'-'},{s:1,c:'Sep 2025',e:'-',d:'-'},{s:1,c:'Sep 2025',e:'-',d:'-'},{s:1,c:'Sep 2025',e:'-',d:'-'},{s:1,c:'Sep 2025',e:'-',d:'-'},{s:0,c:'-',e:'-',d:'Jun 2026'},{s:1,c:'Sep 2025',e:'-',d:'-'},{s:1,c:'Sep 2025',e:'Sep 2026',d:'-'},{s:1,c:'Sep 2025',e:'Sep 2026',d:'-'},{s:1,c:'Sep 2024',e:'-',d:'-'}],
+  5:[{s:1,c:'Aug 2025',e:'-',d:'-'},{s:1,c:'Aug 2025',e:'-',d:'-'},{s:1,c:'Aug 2025',e:'-',d:'-'},{s:1,c:'Aug 2025',e:'-',d:'-'},{s:1,c:'Aug 2025',e:'-',d:'-'},{s:1,c:'Aug 2025',e:'-',d:'-'},{s:1,c:'Aug 2025',e:'-',d:'-'},{s:2,c:'Jun 2025',e:'Jun 2026',d:'-'},{s:2,c:'Jun 2025',e:'Jun 2026',d:'-'},{s:1,c:'Aug 2022',e:'-',d:'-'}],
+  6:[{s:1,c:'Dec 2025',e:'-',d:'-'},{s:1,c:'Dec 2025',e:'-',d:'-'},{s:1,c:'Dec 2025',e:'-',d:'-'},{s:1,c:'Dec 2025',e:'-',d:'-'},{s:1,c:'Dec 2025',e:'-',d:'-'},{s:1,c:'Dec 2025',e:'-',d:'-'},{s:1,c:'Dec 2025',e:'-',d:'-'},{s:1,c:'Dec 2025',e:'Dec 2026',d:'-'},{s:1,c:'Dec 2025',e:'Dec 2026',d:'-'},{s:1,c:'Jul 2022',e:'-',d:'-'}],
+  7:[{s:1,c:'Apr 2026',e:'-',d:'-'},{s:1,c:'Apr 2026',e:'-',d:'-'},{s:0,c:'-',e:'-',d:'Jun 2026'},{s:0,c:'-',e:'-',d:'Jun 2026'},{s:0,c:'-',e:'-',d:'Jun 2026'},{s:0,c:'-',e:'-',d:'Jun 2026'},{s:0,c:'-',e:'-',d:'Jun 2026'},{s:0,c:'-',e:'-',d:'Jun 2026'},{s:1,c:'Apr 2026',e:'Apr 2027',d:'-'},{s:1,c:'Apr 2026',e:'-',d:'-'}],
+  8:[{s:1,c:'Mar 2026',e:'-',d:'-'},{s:1,c:'Mar 2026',e:'-',d:'-'},{s:1,c:'Apr 2026',e:'-',d:'-'},{s:1,c:'Apr 2026',e:'-',d:'-'},{s:0,c:'-',e:'-',d:'Jun 2026'},{s:0,c:'-',e:'-',d:'Jun 2026'},{s:0,c:'-',e:'-',d:'Jun 2026'},{s:0,c:'-',e:'-',d:'Jun 2026'},{s:1,c:'Mar 2026',e:'Mar 2027',d:'-'},{s:1,c:'Mar 2026',e:'-',d:'-'}],
+  9:[{s:1,c:'Feb 2026',e:'-',d:'-'},{s:1,c:'Feb 2026',e:'-',d:'-'},{s:1,c:'Feb 2026',e:'-',d:'-'},{s:1,c:'Feb 2026',e:'-',d:'-'},{s:1,c:'Feb 2026',e:'-',d:'-'},{s:1,c:'Feb 2026',e:'-',d:'-'},{s:1,c:'Feb 2026',e:'-',d:'-'},{s:1,c:'Feb 2026',e:'Feb 2027',d:'-'},{s:1,c:'Feb 2026',e:'Feb 2027',d:'-'},{s:1,c:'Nov 2020',e:'-',d:'-'}],
+  10:[{s:1,c:'Oct 2025',e:'-',d:'-'},{s:1,c:'Oct 2025',e:'-',d:'-'},{s:1,c:'Oct 2025',e:'-',d:'-'},{s:1,c:'Oct 2025',e:'-',d:'-'},{s:1,c:'Oct 2025',e:'-',d:'-'},{s:1,c:'Oct 2025',e:'-',d:'-'},{s:1,c:'Oct 2025',e:'-',d:'-'},{s:1,c:'Oct 2025',e:'Oct 2026',d:'-'},{s:1,c:'Oct 2025',e:'Oct 2026',d:'-'},{s:1,c:'May 2022',e:'-',d:'-'}],
+  11:[{s:1,c:'Nov 2025',e:'-',d:'-'},{s:1,c:'Nov 2025',e:'-',d:'-'},{s:1,c:'Nov 2025',e:'-',d:'-'},{s:1,c:'Nov 2025',e:'-',d:'-'},{s:1,c:'Nov 2025',e:'-',d:'-'},{s:1,c:'Nov 2025',e:'-',d:'-'},{s:1,c:'Nov 2025',e:'-',d:'-'},{s:2,c:'Jun 2025',e:'Jun 2026',d:'-'},{s:2,c:'Jun 2025',e:'Jun 2026',d:'-'},{s:1,c:'Nov 2023',e:'-',d:'-'}],
+};
+const COMPS=[{n:'Quality of Work',d:'Accuracy, neatness and attention to detail'},{n:'Job Knowledge',d:'Understanding of duties, procedures and compliance requirements'},{n:'Productivity',d:'Volume and timeliness of work output'},{n:'Dependability',d:'Reliability, consistency and accountability'},{n:'Adaptability',d:'Flexibility in adjusting to new or changing situations'},{n:'Work Behavior',d:'Professionalism and cooperation with peers and supervisors'},{n:'Initiative',d:'Motivation to complete tasks without supervision'},{n:'Decision Making',d:'Judgement, critical thinking and problem-solving'},{n:'Policy and Procedure Compliance',d:'Adherence to company and state regulations'},{n:'Customer Service and Client Relations',d:'Courtesy, respect and responsiveness to clients and coworkers'},{n:'Safety',d:'Adherence to safety procedures and injury prevention'},{n:'Attendance',d:'Timeliness, attendance reliability and punctuality'}];
+const TIERS=[{min:4.75,label:'Exceptional Performer',raise:'6-8% - Strong promotion potential',cls:'bok'},{min:4.00,label:'Advanced Performer',raise:'4-5% - Eligible for standard raise',cls:'bok'},{min:3.00,label:'Solid Performer',raise:'2-3% - Raise possible, budget-dependent',cls:'bnt'},{min:2.00,label:'Needs Improvement',raise:'0% - Must complete growth plan',cls:'bwn'},{min:0,label:'Unsatisfactory',raise:'0% - Corrective action or probation',cls:'ber'}];
+let empReviews={
+  0:[{type:'Annual',date:'Nov 2024',scores:[5,5,5,5,4,5,4,5,5,5,5,4],notes:'Exceptional performer across all competencies. Promotion-ready.',nextDate:'Nov 2025'}],
+  3:[{type:'Annual',date:'Jan 2024',scores:[5,5,5,5,5,5,5,5,5,5,5,5],notes:'Exemplary in every category. Top performer.',nextDate:'Jan 2025'}],
+  2:[{type:'Annual',date:'Mar 2026',scores:[3,2,3,2,3,2,3,2,3,2,3,2],notes:'Attendance and work behavior are primary concerns.',nextDate:'Sep 2026'}],
+};
+let pendingReviews={1:'Marcus Tillman (90-Day)',6:'Tanya Jones (Mid-Year)',10:'Devon Clark (Annual)'};
+const HIRES_DATA=[{n:'Marcus Tillman',s:'Feb 20, 2026 - Direct Care Worker',p:60,done:9},{n:'Angela Williams',s:'May 7, 2026 - Residential Aide',p:20,done:3},{n:'Ramon Cruz',s:'Mar 14, 2026 - Direct Care Worker',p:40,done:6}];
+const HIRE_AVS=[['#DBEAFE','#1E40AF','MT'],['#FAF5FF','#7E22CE','AW'],['#FFF7ED','#9A3412','RC']];
+const CHECKS=[
+  {ph:'Administrative',items:[{t:'HR Paperwork and I-9 Verification',s:'All required employment documents completed'},{t:'Benefits Enrollment',s:'Health, dental, vision, and PTO confirmed'},{t:'System Access and Scheduling Setup',s:'Login credentials, email, scheduling software'}]},
+  {ph:'Mandatory Training',items:[{t:'Person Specific Training',s:'Individual client care plans and routines'},{t:'Rights Training',s:'Individual rights and self-determination'},{t:'Abuse Prevention',s:'Recognition, prevention, and reporting'},{t:'Adult Protection',s:'Colorado adult protective services protocols'},{t:'Log Notes Training',s:'Accurate documentation standards'},{t:'Incident Reports Training',s:'Incident documentation and escalation'},{t:'Mandatory Reporting',s:'Legal obligations and reporting channels'}]},
+  {ph:'Field and Evaluation',items:[{t:'Shadowing Shifts (Weeks 1-2)',s:'Paired with experienced DCW'},{t:'30-Day Check-In with Manager',s:'Progress review and goal-setting'},{t:'First Independent Shift Sign-Off',s:'Unassisted shift with supervisor approval'},{t:'60-Day Performance Review',s:'Formal evaluation with documented feedback'},{t:'90-Day Onboarding Close-Out',s:'Final sign-off, transition to full status'}]},
+];
+const QA=[
+  {keys:['performance review','12 competency','annual review','evaluation','write a review'],r:'How to write a strong 12-Competency Review:<br><br><b>Score each competency honestly</b> with specific examples - "Handled 3 incident reports independently" beats "She is great at her job."<br><b>The average (Total divided by 12)</b> determines tier: 4.75+ Exceptional, 4.00-4.74 Advanced, 3.00-3.99 Solid, 2.00-2.99 Needs Improvement, below 2.00 Unsatisfactory.<br><b>Match observations to competencies</b> - attendance to number 12, conflict to number 6 Work Behavior, poor documentation to number 2 Job Knowledge.<br><b>Supervisor Notes</b> should summarize the period, highlight growth, and set 1-2 clear goals.<br><b>Be consistent</b> - if you issued a verbal warning for attendance, that score should reflect it.'},
+  {keys:['verbal warning','document','attendance','absence','warning'],r:'Documenting a verbal warning:<br><br><b>Log it same day</b> in the Activity Log as Verbal Warning - specifics matter while fresh.<br><b>Be factual</b> - "Arrived 40 minutes late on 5/14 without notification" is actionable. "Bad attitude" is not.<br><b>Note the policy reference</b> - which attendance or conduct policy applies.<br><b>Document their response</b> - "Employee acknowledged the policy and agreed to improve."<br><b>Keep proportional</b> - verbal is Step 1. Escalate to Written Warning if behavior repeats.'},
+  {keys:['retention risk','flight risk','leaving','quit','job search','engagement'],r:'When an employee shows retention risk:<br><br><b>Schedule a 1:1 quickly</b> - within a few days. Goal is understanding, not confrontation.<br><b>Ask open questions</b> - "How are things going for you lately?" Let them talk first.<br><b>Address specific concerns</b> - workload, recognition, growth path.<br><b>Log as Counseling Session</b> - positive paper trail showing you took action.<br><b>Follow up in 30 days</b> - if things improve, log a commendation. If not, escalate.'},
+  {keys:['promotion','promotion case','promote','advancement','ready'],r:'Building a promotion case:<br><br><b>Check the Promotion Eligibility Score</b> - 80 or more is a strong foundation for a conversation.<br><b>Review the Activity Log</b> - multiple commendations, no recent warnings, and goal notes all strengthen the case.<br><b>Reference competency scores</b> - consistent Advanced or Exceptional in Quality, Dependability, and Initiative.<br><b>Log your recommendation</b> - add a Goal/Development note formally recommending promotion consideration.<br><b>Present to leadership</b> - bring the Eligibility Profile and Activity Log entries as evidence.'},
+  {keys:['behavior','attitude','conflict','conduct'],r:'Handling behavior concerns professionally:<br><br><b>Log same day</b> as Behavior Concern - be specific about what happened and when.<br><b>Address privately and promptly</b> - state what you observed, the impact, and the expectation going forward.<br><b>Escalate in steps</b> - Behavior Concern, then Verbal Warning, then Written Warning, then HR involvement.<br><b>Look for root causes</b> - behavior issues sometimes signal burnout or personal stress.'},
+  {keys:['written warning','written','escalate','formal warning'],r:'Written warnings - when and how:<br><br><b>When to escalate</b> - same behavior recurs after a verbal, OR incident is severe such as harassment or safety violation.<br><b>Reference the prior verbal</b> - "This follows a verbal warning issued on the date for the same concern."<br><b>Be very specific</b> - exact behaviors, dates, policy references, measurable expectations going forward.<br><b>State consequences</b> - "Failure to improve may result in further disciplinary action, up to and including termination."<br><b>Get signatures</b> - employee and supervisor. Keep physical copy in file AND log in portal.'},
+  {keys:['qmap','cpr','cert','certification','expired','renewal'],r:'Handling expiring or expired certifications:<br><br><b>QMAP and CPR/FA are annual</b> - Training Tracker flags anything expiring within 30 days. Act 60 days out.<br><b>Expired QMAP is a compliance issue</b> - employee cannot legally administer medications until renewed.<br><b>Log the reminder</b> in Activity Log as Goal/Development - documents that employee was notified.<br><b>Use Mark Complete in Training and Certs</b> - enter the completion date and click Mark Complete to update the tracker instantly. The expiry date auto-sets 12 months out for certifications.'},
+  {keys:['survey','pulse','engagement score','low score'],r:'Acting on low survey scores:<br><br><b>Schedule 1:1s within a week</b> - start with anyone scoring 5 or below on "I feel valued."<br><b>Address growth specifically</b> - "What kind of growth interests you? Let us talk about what is possible here."<br><b>Act publicly on one thing</b> - announce one visible change based on feedback. Shows the survey matters.<br><b>Document the follow-up</b> in Activity Log as a Goal/Development entry.<br><b>Re-check in 30 days</b> - shows the commitment was genuine.'},
+];
+function getAnswer(q){const lower=q.toLowerCase();const match=QA.find(qa=>qa.keys.some(k=>lower.includes(k)));return match?match.r:'That is a specific situation that benefits from a personalized answer. Click <b>Ask Claude.ai</b> below - it has Empowered Care context and can give you tailored guidance for this exact situation.';}
+
+let role='admin',selProfEmp=null,selRevEmp=null,selTrain=null,trainFilter='all',activeScores={},activeRvType='90-Day';
+let ckDates=[{},{},{}];
+let curHireIdx=0;
+
+const HR_PAGES=['dashboard','profiles','onboarding','reviews','training','retention','surveys','chat'];
+const MGR_PAGES=['profiles','reviews','onboarding','training'];
+
+function pickRole(r){role=r;document.getElementById('ra').classList.toggle('sel',r==='admin');document.getElementById('rm').classList.toggle('sel',r==='mgr');document.getElementById('cka').className=r==='admin'?'ti ti-circle-check':'ti ti-circle';document.getElementById('cka').style.color=r==='admin'?'#1C4A3E':'#D1D5DB';document.getElementById('ckm').className=r==='mgr'?'ti ti-circle-check':'ti ti-circle';document.getElementById('ckm').style.color=r==='mgr'?'#1C4A3E':'#D1D5DB';}
+function enterApp(){document.getElementById('login').style.display='none';document.getElementById('app').classList.add('on');const isA=role==='admin';document.getElementById('nava').style.display=isA?'block':'none';document.getElementById('navm').style.display=isA?'none':'block';if(!isA){document.getElementById('sbnm').textContent='Supervisor';document.getElementById('sbrl').textContent='Dept. Supervisor/Manager';document.getElementById('sbav').textContent='DS';document.getElementById('prof-sub').textContent='Select an employee to view and log notes';navTo('profiles');}else{navTo('dashboard');}buildEmpList();buildRvEmpList();buildHireList();buildChecklist(0);buildSurveyRatings();buildAlertBar();}
+function logout(){document.getElementById('login').style.display='flex';document.getElementById('app').classList.remove('on');}
+function showPage(n){document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));document.getElementById('pg-'+n).classList.add('on');}
+function navTo(page){showPage(page);if(page==='training')buildTrainTable();const nv=document.getElementById(role==='admin'?'nava':'navm');nv.querySelectorAll('.si').forEach(e=>e.classList.remove('active'));const pages=role==='admin'?HR_PAGES:MGR_PAGES;const idx=pages.indexOf(page);if(idx>=0){const sis=nv.querySelectorAll('.si');if(sis[idx])sis[idx].classList.add('active');}}
+function nav(page,el){navTo(page);}
+function navToProfile(empId){navTo('profiles');selProfEmp=empId;buildEmpList();renderProfPanel(empId);}
+
+function buildAlertBar(){const pending=Object.entries(pendingReviews);if(pending.length===0){document.getElementById('alert-bar').style.display='none';return;}document.getElementById('alert-bar').style.display='flex';let html='<b>Action needed this month</b> &mdash; Reviews due: ';html+=pending.map(([id,name])=>{const empIdx=EMPS.findIndex(e=>e.id===parseInt(id));return`<span class="alert-item" onclick="navTo('reviews');setTimeout(function(){var items=document.querySelectorAll('#rv-emp-list .eli');if(items[${empIdx}])items[${empIdx}].click();},150)">${name} &#x2197;</span>`;}).join('');html+=' &nbsp;&middot;&nbsp; <span class="alert-item" onclick="navTo('training')">3 certs expiring soon &#x2197;</span>';document.getElementById('alert-content').innerHTML=html;}
+
+function buildEmpList(){document.getElementById('emp-list').innerHTML=EMPS.map(e=>{const logs=empLogs[e.id]||[];const w=logs.some(l=>l.cat==='verbal'||l.cat==='written'||l.cat==='incident');const c=logs.some(l=>l.cat==='commendation');const dot=w?'<span style="width:7px;height:7px;border-radius:50%;background:#B91C1C;display:inline-block;margin-left:auto;flex-shrink:0"></span>':c?'<span style="width:7px;height:7px;border-radius:50%;background:#166534;display:inline-block;margin-left:auto;flex-shrink:0"></span>':'';return`<div class="eli ${selProfEmp===e.id?'active':''}" onclick="selProf(${e.id},this)"><div class="eli-av" style="background:${e.bg};color:${e.c}">${e.i}</div><div style="flex:1"><div style="font-size:12px;color:#1A1A1A">${e.n}</div><div style="font-size:10px;color:#9CA3AF">${e.r}</div></div>${dot}</div>`;}).join('');}
+function selProf(id,el){document.querySelectorAll('#emp-list .eli').forEach(x=>x.classList.remove('active'));el.classList.add('active');selProfEmp=id;renderProfPanel(id);}
+function renderProfPanel(id){const e=EMPS.find(x=>x.id===id);const logs=empLogs[id]||[];const sl=SLBL[e.s]||['Active Staff','bok'];const lb=sl[0];const sc=sl[1];const today=new Date().toLocaleDateString('en-US',{month:'numeric',day:'numeric',year:'numeric'});const promoBlock=role==='admin'?buildPromoHtml(id):'';document.getElementById('prof-right').innerHTML=`<div class="emp-hd"><div style="width:40px;height:40px;border-radius:50%;background:${e.bg};color:${e.c};display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;flex-shrink:0">${e.i}</div><div style="flex:1"><div style="font-size:14px;font-weight:500;color:#1A1A1A">${e.n}</div><div style="font-size:11px;color:#6B7280">${e.r} - ${e.t} - Engagement ${e.e}%</div></div><span class="bdg ${sc}">${lb}</span></div><p class="status-note">The <b>${lb}</b> badge = general employment status. Scroll down to the Promotion Eligibility section for the promotion-specific score, calculated from reviews, notes, and tenure.</p><div class="two" style="margin-bottom:0"><div><div class="anf"><div style="font-size:12px;font-weight:500;color:#1A1A1A;margin-bottom:.75rem">Add Note / Entry</div><div style="margin-bottom:10px"><label class="fl">Date</label><input class="fi" id="nd" type="text" value="${today}"></div><div style="margin-bottom:10px"><label class="fl">Category</label><select class="fsel" id="nc"><option value="performance">Performance Note</option><option value="commendation">Commendation</option><option value="behavior">Behavior Concern</option><option value="verbal">Verbal Warning</option><option value="written">Written Warning</option><option value="incident">Incident Report</option><option value="counseling">Counseling Session</option><option value="goal">Goal / Development</option></select></div><div style="margin-bottom:10px"><label class="fl">Note</label><textarea class="fta" id="nt" placeholder="e.g. 5/19 - Joe displayed a poor attitude due to conflict with co-workers. Gave him a verbal warning..."></textarea></div><button class="add-btn" onclick="addNote(${id})">+ Add Note</button></div>${promoBlock}</div><div><div style="font-size:12px;font-weight:500;color:#1A1A1A;margin-bottom:.75rem;display:flex;align-items:center;justify-content:space-between"><span>Activity Log</span><div style="display:flex;align-items:center;gap:6px"><span style="font-size:11px;color:#9CA3AF">${logs.length} entr${logs.length===1?'y':'ies'}</span><button class="print-btn" onclick="printEmpLog(${id})"><i class="ti ti-printer" style="font-size:11px"></i> Print</button></div></div><div id="log-entries">${logs.length===0?'<div style="text-align:center;padding:2rem;color:#9CA3AF;font-size:12px">No entries yet.</div>':logs.map(l=>renderLogEntry(l)).join('')}</div></div></div>`;}
+function renderLogEntry(l){const cat=NOTE_CATS[l.cat]||{label:l.cat,cls:'cat-performance'};return`<div class="log-entry"><div class="log-meta"><span class="lcat ${cat.cls}">${cat.label}</span><span class="log-date">${l.date}</span><span class="log-by">- ${l.by}</span></div><div class="log-text">${l.text}</div></div>`;}
+function addNote(empId){const date=document.getElementById('nd').value.trim();const cat=document.getElementById('nc').value;const text=document.getElementById('nt').value.trim();if(!text){alert('Please enter a note.');return;}if(!empLogs[empId])empLogs[empId]=[];empLogs[empId].unshift({id:Date.now(),date,cat,text,by:role==='admin'?'Jumillah A.':'Supervisor'});document.getElementById('nt').value='';renderProfPanel(empId);buildEmpList();}
+
+function buildPromoHtml(id){const e=EMPS.find(x=>x.id===id);const logs=empLogs[id]||[];const reviews=empReviews[id]||[];let rp=0,avg=null;if(reviews.length){const last=reviews[reviews.length-1];const a=last.scores.reduce((x,y)=>x+y,0)/12;avg=a.toFixed(2);rp=Math.round((a/5)*50);}const comms=logs.filter(l=>l.cat==='commendation').length;const vb=logs.filter(l=>l.cat==='verbal').length;const wr=logs.filter(l=>l.cat==='written').length;const inc=logs.filter(l=>l.cat==='incident').length;const cp=Math.min(comms*5,20);const wp=-(vb*5)-(wr*10)-(inc*8);const tp=Math.min(Math.round((parseFloat(e.t)||0)*2),10);const total=Math.max(0,Math.min(100,rp+cp+wp+tp));let lbl,bc,sc2;if(total>=80){lbl='Promotion Ready';bc='#166534';sc2='bok';}else if(total>=60){lbl='Developing';bc='#1C4A3E';sc2='bin';}else if(total>=40){lbl='Needs Improvement';bc='#C8923A';sc2='bwn';}else{lbl='Not Eligible';bc='#B91C1C';sc2='ber';}const rec=total>=80?`${e.n} has a strong profile. Recommend a formal promotion conversation.`:total>=60?`${e.n} is developing. ${vb+wr>0?'Address active warnings first. ':''}Schedule a career conversation in 3-6 months.`:total>=40?`${e.n} needs measurable improvement before promotion.`:`${e.n}'s current record does not support promotion at this time.`;return`<div class="promo-card" style="border:1px solid rgba(28,74,62,.12)"><div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:.5rem"><div><div style="font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:#9CA3AF;margin-bottom:2px">Promotion Eligibility Score</div><div style="display:flex;align-items:baseline;gap:8px"><span style="font-size:28px;font-weight:500;color:${bc}">${total}</span><span style="font-size:13px;color:#6B7280">/100</span></div></div><span class="bdg ${sc2}" style="font-size:11px;padding:4px 10px;margin-top:4px">${lbl}</span></div><div class="promo-bar-wrap"><div class="promo-bar-fill" style="width:${total}%;background:${bc}"></div></div><div class="promo-factor"><span style="color:#6B7280">Review Score</span><span style="font-weight:500;color:#1A1A1A">${avg?`${avg} avg - +${rp}pts`:'No reviews yet'}</span></div><div class="promo-factor"><span style="color:#6B7280">Commendations</span><span style="font-weight:500;color:#166534">+${cp}pts - ${comms} on file</span></div><div class="promo-factor"><span style="color:#6B7280">Warnings and Incidents</span><span style="font-weight:500;color:${wp<0?'#B91C1C':'#6B7280'}">${wp}pts - ${vb}V / ${wr}W / ${inc}I</span></div><div class="promo-factor"><span style="color:#6B7280">Tenure Bonus</span><span style="font-weight:500;color:#1A1A1A">+${tp}pts - ${e.t}</span></div><div class="promo-rec"><b>Recommendation:</b> ${rec}</div></div>`;}
+
+function buildRvEmpList(){document.getElementById('rv-emp-list').innerHTML=EMPS.map(e=>{const r=empReviews[e.id]||[];const last=r.length?r[r.length-1]:null;const pending=pendingReviews[e.id];return`<div class="eli ${selRevEmp===e.id?'active':''}" onclick="selRv(${e.id},this)"><div class="eli-av" style="background:${e.bg};color:${e.c}">${e.i}</div><div style="flex:1"><div style="font-size:12px;color:#1A1A1A">${e.n}${pending?'<span style="font-size:9px;background:#FFFBEB;color:#92400E;border-radius:4px;padding:1px 5px;margin-left:5px;font-weight:500">DUE</span>':''}</div><div style="font-size:10px;color:#9CA3AF">${last?`Last: ${last.type} ${last.date}`:'No reviews yet'}</div></div></div>`;}).join('');}
+function selRv(id,el){document.querySelectorAll('#rv-emp-list .eli').forEach(x=>x.classList.remove('active'));el.classList.add('active');selRevEmp=id;activeScores={};activeRvType='90-Day';renderRvPanel(id);}
+function renderRvPanel(id){const e=EMPS.find(x=>x.id===id);const reviews=empReviews[id]||[];let ph='';if(reviews.length){ph='<div class="card" style="margin-bottom:.75rem"><div class="cti">Past Reviews</div>';reviews.slice().reverse().forEach(rv=>{const a=(rv.scores.reduce((x,y)=>x+y,0)/12).toFixed(2);const t=TIERS.find(t=>parseFloat(a)>=t.min)||TIERS[4];ph+=`<div class="past-rv"><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;flex-wrap:wrap"><span style="font-size:12px;font-weight:500;color:#1A1A1A">${rv.type} - ${rv.date}</span><span class="bdg ${t.cls}">${t.label}</span><span style="font-size:12px;font-weight:500;color:#1A1A1A;margin-left:auto">Avg: ${a}</span><button class="print-btn" onclick="printReview(${id},'${rv.type}','${rv.date}')"><i class="ti ti-printer" style="font-size:11px"></i> Print</button></div><div style="font-size:11px;color:#6B7280;margin-bottom:.5rem">${rv.notes}</div><div class="past-rv-pills">${COMPS.map((c,i)=>`<span class="pill">${c.n.split(' ')[0]}: <b>${rv.scores[i]}</b></span>`).join('')}</div></div>`;});ph+='</div>';}document.getElementById('rv-right').innerHTML=`${ph}<div class="card"><div style="display:flex;align-items:center;gap:10px;margin-bottom:1.25rem"><div style="width:40px;height:40px;border-radius:50%;background:${e.bg};color:${e.c};display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500">${e.i}</div><div style="flex:1"><div style="font-size:14px;font-weight:500;color:#1A1A1A">${e.n}</div><div style="font-size:11px;color:#6B7280">${e.r}</div></div>${pendingReviews[id]?'<span style="font-size:11px;background:#FFFBEB;color:#92400E;padding:3px 8px;border-radius:6px;font-weight:500">Review Due</span>':''}</div><div class="cti" style="margin-bottom:.5rem">Review Period</div><div class="rtb-row">${['90-Day','Mid-Year','Annual','Other'].map(t=>`<button class="rtb ${activeRvType===t?'active':''}" onclick="setRvType('${t}',this)">${t}</button>`).join('')}</div><div class="cti" style="margin-bottom:.25rem">Core Competencies - Score 1-5</div><div style="font-size:11px;color:#9CA3AF;margin-bottom:.75rem">5=Exceptional - 4=Advanced - 3=Solid - 2=Needs Improvement - 1=Unsatisfactory</div><table class="comp-table"><thead><tr><th>#</th><th>Competency</th><th></th><th style="text-align:center">Score</th></tr></thead><tbody>${COMPS.map((c,i)=>`<tr><td>${i+1}</td><td><b>${c.n}</b></td><td>${c.d}</td><td><select class="ssc" id="sc${i}" onchange="updateScore(${i},this.value)"><option value="">Select</option><option value="5">5 - Exceptional</option><option value="4">4 - Advanced</option><option value="3">3 - Solid</option><option value="2">2 - Needs Improvement</option><option value="1">1 - Unsatisfactory</option></select></td></tr>`).join('')}</tbody></table><div class="score-sum"><div class="ss-item"><div class="ss-val" id="ss-total">-</div><div class="ss-lbl">Total Points</div></div><div class="ss-item"><div class="ss-val" id="ss-avg">-</div><div class="ss-lbl">Average / 12</div></div><div id="ss-tier"><div style="font-size:11px;color:#9CA3AF">Score all 12 to see tier</div></div></div><div style="margin-bottom:1rem"><div class="cti">Supervisor Notes</div><textarea class="fta" id="rv-notes" placeholder="Observations, strengths, areas for improvement, goals for next review period..."></textarea></div><div style="display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap"><div><div class="fl" style="margin-bottom:4px">Next Review Date</div><input class="fi" id="rv-next" type="text" placeholder="e.g. Nov 2026" style="width:140px"></div><button style="padding:9px 18px;background:#1C4A3E;color:white;border:none;border-radius:9px;font-size:13px;cursor:pointer;font-family:inherit" onclick="saveReview(${id})">Save Review</button></div></div>`;}
+function setRvType(t,btn){activeRvType=t;document.querySelectorAll('.rtb').forEach(b=>b.classList.remove('active'));btn.classList.add('active');}
+function updateScore(idx,val){if(val)activeScores[idx]=parseInt(val);else delete activeScores[idx];const vals=Object.values(activeScores);const total=vals.reduce((a,b)=>a+b,0);document.getElementById('ss-total').textContent=vals.length?total:'-';if(vals.length===12){const avg=(total/12).toFixed(2);document.getElementById('ss-avg').textContent=avg;const tier=TIERS.find(t=>parseFloat(avg)>=t.min)||TIERS[4];document.getElementById('ss-tier').innerHTML=`<div><span class="bdg ${tier.cls}" style="font-size:11px;padding:4px 10px">${tier.label}</span><div style="font-size:10px;color:#6B7280;margin-top:4px">${tier.raise}</div></div>`;}else{document.getElementById('ss-avg').textContent=vals.length?(total/vals.length).toFixed(2)+'*':'-';document.getElementById('ss-tier').innerHTML=`<div style="font-size:11px;color:#9CA3AF">${12-vals.length} more needed</div>`;}}
+function saveReview(empId){if(Object.keys(activeScores).length<12){alert('Please score all 12 competencies.');return;}const scores=Array.from({length:12},(_,i)=>activeScores[i]||0);const notes=document.getElementById('rv-notes').value;const nextDate=document.getElementById('rv-next').value;const today=new Date().toLocaleDateString('en-US',{month:'short',year:'numeric'});if(!empReviews[empId])empReviews[empId]=[];empReviews[empId].push({type:activeRvType,date:today,scores,notes,nextDate});if(pendingReviews[empId]){delete pendingReviews[empId];buildAlertBar();const dueEl=document.getElementById('dash-reviews-due');if(dueEl)dueEl.textContent=Object.keys(pendingReviews).length;}activeScores={};renderRvPanel(empId);buildRvEmpList();if(selProfEmp===empId)renderProfPanel(empId);alert('Review saved. The Action Needed banner has been updated.');}
+
+function printReview(empId,type,date){const e=EMPS.find(x=>x.id===empId);const reviews=empReviews[empId]||[];const rv=reviews.find(r=>r.type===type&&r.date===date)||reviews[reviews.length-1];if(!rv){alert('No review found to print.');return;}const avg=(rv.scores.reduce((a,b)=>a+b,0)/12).toFixed(2);const tier=TIERS.find(t=>parseFloat(avg)>=t.min)||TIERS[4];const html=`<html><head><title>Performance Review - ${e.n}</title><style>body{font-family:Arial,sans-serif;max-width:700px;margin:2rem auto;color:#1A1A1A;font-size:13px;}h1{color:#1C4A3E;font-size:20px;margin-bottom:4px;}h2{font-size:15px;color:#374151;margin-bottom:1.5rem;}.meta{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1.5rem;background:#F8F5F0;padding:12px;border-radius:8px;}.meta div{font-size:12px;}.meta strong{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:#6B7280;margin-bottom:2px;}table{width:100%;border-collapse:collapse;margin-bottom:1rem;}th,td{border:1px solid #D1D5DB;padding:7px 10px;text-align:left;font-size:12px;}th{background:#F8F5F0;font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:#6B7280;}.score{text-align:center;font-weight:600;}.notes{background:#F8F5F0;padding:10px;border-radius:6px;font-size:12px;color:#374151;margin-bottom:1rem;}.sig{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2rem;}.sig-line{border-top:1px solid #000;padding-top:5px;font-size:11px;color:#6B7280;}@media print{button{display:none}}</style></head><body><h1>Empowered Care LLC</h1><h2>Staff Performance Evaluation</h2><div class="meta"><div><strong>Employee Name</strong>${e.n}</div><div><strong>Position</strong>${e.r}</div><div><strong>Review Type</strong>${rv.type}</div><div><strong>Review Date</strong>${rv.date}</div><div><strong>Tenure</strong>${e.t}</div><div><strong>Next Review</strong>${rv.nextDate||'TBD'}</div></div><table><thead><tr><th>#</th><th>Competency</th><th>Description</th><th class="score">Score (1-5)</th></tr></thead><tbody>${COMPS.map((c,i)=>`<tr><td>${i+1}</td><td><b>${c.n}</b></td><td style="color:#6B7280;font-size:11px">${c.d}</td><td class="score">${rv.scores[i]}</td></tr>`).join('')}</tbody></table><div style="margin-bottom:1rem"><b>Average Score:</b> ${avg} &nbsp;|&nbsp; <b>Tier:</b> ${tier.label} &nbsp;|&nbsp; ${tier.raise}</div><div class="notes"><b>Supervisor Notes:</b><br>${rv.notes||'No notes recorded.'}</div><div class="sig"><div><div class="sig-line">Supervisor Signature / Date</div></div><div><div class="sig-line">Employee Signature / Date</div></div></div><button onclick="window.print()" style="margin-top:1.5rem;padding:8px 16px;background:#1C4A3E;color:white;border:none;border-radius:6px;cursor:pointer">Print / Save as PDF</button></body></html>`;const win=window.open('','_blank');if(win){win.document.write(html);win.document.close();}else{alert('Please allow popups for this page to print reviews.');}}
+function printEmpLog(empId){const e=EMPS.find(x=>x.id===empId);const logs=empLogs[empId]||[];if(!logs.length){alert('No activity log entries to print.');return;}const html=`<html><head><title>Activity Log - ${e.n}</title><style>body{font-family:Arial,sans-serif;max-width:700px;margin:2rem auto;color:#1A1A1A;font-size:13px;}h1{color:#1C4A3E;font-size:18px;}.entry{border:1px solid #E5E7EB;border-radius:8px;padding:12px;margin-bottom:12px;}.meta{display:flex;gap:12px;margin-bottom:6px;font-size:11px;color:#6B7280;}.cat{font-weight:500;color:#1C4A3E;}.text{font-size:12px;color:#374151;line-height:1.6;}@media print{button{display:none}}</style></head><body><h1>Empowered Care LLC</h1><h2 style="font-size:14px;color:#374151;margin-bottom:1.5rem">Activity Log - ${e.n} | ${e.r} | ${e.t}</h2>${logs.map(l=>{const cat=NOTE_CATS[l.cat]||{label:l.cat};return`<div class="entry"><div class="meta"><span class="cat">${cat.label}</span><span>${l.date}</span><span>Logged by ${l.by}</span></div><div class="text">${l.text}</div></div>`;}).join('')}<button onclick="window.print()" style="margin-top:1rem;padding:8px 16px;background:#1C4A3E;color:white;border:none;border-radius:6px;cursor:pointer">Print / Save as PDF</button></body></html>`;const win=window.open('','_blank');if(win){win.document.write(html);win.document.close();}else{alert('Please allow popups to print.');}}
+function printActivity(){let allLogs=[];EMPS.forEach(e=>{(empLogs[e.id]||[]).forEach(l=>allLogs.push({...l,emp:e.n,role:e.r}));});allLogs.sort((a,b)=>new Date(b.date)-new Date(a.date));const html=`<html><head><title>Activity Report - Empowered Care</title><style>body{font-family:Arial,sans-serif;max-width:750px;margin:2rem auto;font-size:13px;}h1{color:#1C4A3E;font-size:18px;}table{width:100%;border-collapse:collapse;}th,td{border:1px solid #D1D5DB;padding:7px;font-size:11px;}th{background:#F8F5F0;text-transform:uppercase;font-size:9px;letter-spacing:.06em;color:#6B7280;}@media print{button{display:none}}</style></head><body><h1>Empowered Care LLC - Activity Report</h1><p style="color:#6B7280;margin-bottom:1rem">Generated ${new Date().toLocaleDateString()}</p><table><thead><tr><th>Date</th><th>Employee</th><th>Type</th><th>Note</th><th>Logged By</th></tr></thead><tbody>${allLogs.map(l=>`<tr><td>${l.date}</td><td>${l.emp}</td><td>${NOTE_CATS[l.cat]?.label||l.cat}</td><td>${l.text}</td><td>${l.by}</td></tr>`).join('')}</tbody></table><button onclick="window.print()" style="margin-top:1rem;padding:8px 16px;background:#1C4A3E;color:white;border:none;border-radius:6px;cursor:pointer">Print / Save as PDF</button></body></html>`;const win=window.open('','_blank');if(win){win.document.write(html);win.document.close();}else{alert('Please allow popups to print reports.');}}
+
+function buildHireList(){document.getElementById('hire-list').innerHTML=HIRES_DATA.map((h,i)=>{const[bg,c,av]=HIRE_AVS[i];return`<div class="eli ${i===0?'active':''}" onclick="selHire(${i},this)"><div class="eli-av" style="background:${bg};color:${c}">${av}</div>${h.n}</div>`;}).join('');}
+function selHire(i,el){document.querySelectorAll('#hire-list .eli').forEach(x=>x.classList.remove('active'));el.classList.add('active');curHireIdx=i;buildChecklist(i);}
+function buildChecklist(idx){const h=HIRES_DATA[idx];curHireIdx=idx;document.getElementById('hnm').textContent=h.n;document.getElementById('hsub').textContent='Started '+h.s;let done=0;let total=0;let html='';let ti=0;CHECKS.forEach(sec=>{html+=`<div class="ckph">${sec.ph}</div>`;sec.items.forEach(item=>{const wasPreChecked=ti<h.done;const userChecked=ckDates[idx][ti]!==undefined;const isChecked=wasPreChecked||userChecked;const compDate=wasPreChecked?'Pre-onboarding':(ckDates[idx][ti]||'');if(isChecked)done++;total++;html+=`<div class="ckitem"><div class="ckbox ${isChecked?'chk':''}" onclick="toggleCk(this,${idx},${ti})">${isChecked?'<i class="ti ti-check"></i>':''}</div><div><div class="cklabel ${isChecked?'done':''}">${item.t}</div>${isChecked?`<div class="ckdate">Completed: ${compDate}</div>`:`<div class="cksub">${item.s}</div>`}</div></div>`;ti++;});});document.getElementById('checklist').innerHTML=html;const pct=Math.round(done/total*100);document.getElementById('hpct').textContent=pct+'%';document.getElementById('hbar').style.width=pct+'%';}
+function toggleCk(box,hireIdx,itemIdx){if(box.classList.contains('chk')&&ckDates[hireIdx][itemIdx]==='Pre-onboarding')return;const today=new Date().toLocaleDateString('en-US',{month:'numeric',day:'numeric',year:'numeric'});if(box.classList.contains('chk')){delete ckDates[hireIdx][itemIdx];}else{ckDates[hireIdx][itemIdx]=today;}buildChecklist(hireIdx);}
+
+function buildTrainTable(){const VTI=TC.map((t,i)=>({t,i})).filter(x=>!x.t.hrOnly||role==='admin');const emps=trainFilter==='att'?EMPS.filter(e=>VTI.some(({i})=>{const s=ETD[e.id]?.[i]?.s;return s===2||s===3||s===0;})):EMPS;const tCols=VTI.filter(x=>x.t.type==='training').length;const cCols=VTI.filter(x=>x.t.type==='cert'&&!x.t.hrOnly).length;const hCols=role==='admin'?VTI.filter(x=>x.t.hrOnly).length:0;let h=`<thead><tr><th class="emph" rowspan="2" style="min-width:110px;vertical-align:bottom;padding-bottom:6px">Employee</th><th colspan="${tCols}" class="ghead" style="border-left:1px solid #E5E7EB">Mandatory Trainings</th>`;if(cCols>0)h+=`<th colspan="${cCols}" class="ghead" style="border-left:1.5px solid #C8923A;color:#78350F">Certifications</th>`;if(hCols>0)h+=`<th colspan="${hCols}" class="ghead" style="border-left:1.5px solid #FCA5A5;color:#991B1B;background:#FFF5F5">HR Only</th>`;h+='</tr><tr>';let pt='training';VTI.forEach(({t})=>{let cls='';if(t.type==='cert'&&pt==='training')cls=' style="border-left:1.5px solid #C8923A"';else if(t.hrOnly)cls=' style="background:#FFF5F5"';h+=`<th${cls}>${t.sh}</th>`;pt=t.type;});h+='</tr></thead><tbody>';emps.forEach(e=>{h+=`<tr class="${selTrain===e.id?'sel':''}" onclick="selTrainEmp(${e.id})"><td><div class="tep"><div class="tav" style="background:${e.bg};color:${e.c}">${e.i}</div><span class="tnm">${e.n}</span></div></td>`;let pt2='training';VTI.forEach(({t,i})=>{let cls='';if(t.type==='cert'&&pt2==='training')cls=' style="border-left:1.5px solid #C8923A"';else if(t.hrOnly)cls=' style="border-left:1.5px solid #FCA5A5;background:#FFF8F8"';h+=`<td${cls}>${DOT[ETD[e.id]?.[i]?.s??0]}</td>`;pt2=t.type;});h+='</tr>';});document.getElementById('ttbl').innerHTML=h+'</tbody>';}
+function selTrainEmp(id){selTrain=selTrain===id?null:id;buildTrainTable();const wrap=document.getElementById('tdet-wrap');if(selTrain===null){wrap.style.display='none';return;}wrap.style.display='block';const e=EMPS.find(x=>x.id===id);document.getElementById('tdet-hd').innerHTML=`<div class="tav" style="background:${e.bg};color:${e.c};width:28px;height:28px;flex-shrink:0">${e.i}</div><b style="font-size:13px;color:#1A1A1A">${e.n}</b><span style="font-size:11px;color:#6B7280;margin-left:4px">- ${e.r}</span>`;const VTI=TC.map((t,i)=>({t,i})).filter(x=>!x.t.hrOnly||role==='admin');const secs=[{label:'Mandatory Trainings',f:x=>x.t.type==='training'},{label:'Certifications',f:x=>x.t.type==='cert'&&!x.t.hrOnly},{label:'HR Confidential',f:x=>x.t.hrOnly,hr:true}];let html='';secs.forEach(sec=>{if(sec.hr&&role!=='admin')return;const items=VTI.filter(sec.f);if(!items.length)return;html+=`<div class="tdet-sec" style="${sec.hr?'background:#FEF2F2;':''}">${sec.label}${sec.hr?'<span class="hr-badge">HR Only</span>':''}</div>`;items.forEach(({t,i})=>{const td=ETD[id]?.[i]||{s:0,c:'-',e:'-',d:'-'};html+=`<div class="tdet-row ${sec.hr?'hr-row':''}"><div class="tdet-cell" style="font-size:12px">${t.n}</div><div class="tdet-cell" style="justify-content:center">${SBDG[td.s]}</div><div class="tdet-cell"><input class="din" value="${td.c}" placeholder="Apr 2025" onchange="if(ETD[${id}])ETD[${id}][${i}].c=this.value"></div><div class="tdet-cell"><input class="din" value="${td.e}" placeholder="${t.type==='cert'?'Jun 2026':'N/A'}" onchange="if(ETD[${id}])ETD[${id}][${i}].e=this.value"></div><div class="tdet-cell"><input class="din" value="${td.d}" placeholder="Jun 2026" onchange="if(ETD[${id}])ETD[${id}][${i}].d=this.value"></div><div class="tdet-cell"><button class="mk-btn" onclick="markTrainComplete(${id},${i})">Mark Complete</button></div></div>`;});});document.getElementById('tdet-rows').innerHTML=html;}
+function markTrainComplete(empId,trainIdx){const today=new Date().toLocaleDateString('en-US',{month:'short',year:'numeric'});if(!ETD[empId])return;const t=TC[trainIdx];ETD[empId][trainIdx].s=1;ETD[empId][trainIdx].c=today;if(t.type==='cert'){const exp=new Date();exp.setFullYear(exp.getFullYear()+1);ETD[empId][trainIdx].e=exp.toLocaleDateString('en-US',{month:'short',year:'numeric'});}selTrainEmp(empId);buildTrainTable();setTimeout(()=>alert(t.n+' marked complete for '+EMPS.find(e=>e.id===empId)?.n+'. Tracker updated.'),50);}
+function filterT(f){trainFilter=f;document.getElementById('flt-all').classList.toggle('active',f==='all');document.getElementById('flt-att').classList.toggle('active',f==='att');buildTrainTable();}
+
+function buildSurveyRatings(){[1,2,3].forEach(q=>{const row=document.getElementById('q'+q);if(!row)return;for(let v=1;v<=10;v++){const btn=document.createElement('button');btn.className='ratb';btn.textContent=v;btn.onclick=function(){row.querySelectorAll('.ratb').forEach(b=>b.classList.remove('sl'));btn.classList.add('sl');};row.appendChild(btn);}});}
+
+const qchat=document.getElementById('qchat');
+function askQ(q){document.getElementById('qin').value=q;submitQ();}
+function submitQ(){const q=document.getElementById('qin').value.trim();if(!q)return;document.getElementById('qin').value='';qchat.insertAdjacentHTML('beforeend',`<div class="msg msgu"><div class="msglb">You</div><div class="bbl">${q}</div></div>`);qchat.insertAdjacentHTML('beforeend',`<div class="msg msga"><div class="msglb">HR Quick Reference</div><div class="bbl">${getAnswer(q)}</div></div>`);qchat.scrollTop=qchat.scrollHeight;}
+document.getElementById('qin').addEventListener('keydown',e=>{if(e.key==='Enter')submitQ();});
+</script>
